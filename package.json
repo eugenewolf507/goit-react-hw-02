@@ -9,6 +9,7 @@
     "react-scripts": "3.0.1",
     "shortid": "^2.2.14"
   },
+  "homepage": "https://eugenewolf507.github.io/goit-react-hw-02/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
