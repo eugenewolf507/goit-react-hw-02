@@ -13,10 +13,10 @@ class Dashboard extends Component {
     transaction: {
       id: '',
       type: '',
-      amount: '',
+      amount: 0,
       date: '',
     },
-    transactionInput: '',
+    transactionInput: 0,
     income: 0,
     expense: 0,
   };
@@ -24,7 +24,7 @@ class Dashboard extends Component {
   updateInputValue = ({ target }) => {
     const { name, value } = target;
     if (value >= 0) {
-      this.setState({ [name]: value });
+      this.setState({ [name]: Number(value) });
     }
   };
 
@@ -61,15 +61,15 @@ class Dashboard extends Component {
 
   setBalanceIncome = transactionInput => {
     this.setState(prevState => ({
-      balance: prevState.balance + Number(transactionInput),
-      income: prevState.income + Number(transactionInput),
+      balance: prevState.balance + transactionInput,
+      income: prevState.income + transactionInput,
     }));
   };
 
   setBalanceExpense = transactionInput => {
     this.setState(prevState => ({
-      balance: prevState.balance - Number(transactionInput),
-      expense: prevState.expense + Number(transactionInput),
+      balance: prevState.balance - transactionInput,
+      expense: prevState.expense + transactionInput,
     }));
   };
 

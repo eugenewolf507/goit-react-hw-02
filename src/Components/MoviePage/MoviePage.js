@@ -19,13 +19,7 @@ class MoviePage extends Component {
   getFilteredMovies = searchMovieValue => {
     return movies.filter(movie => {
       const lowerMovieTitle = movie.title.toLowerCase().replace(/\s/g, '');
-      const lowerMovieOverview = movie.overview
-        .toLowerCase()
-        .replace(/\s/g, '');
-      return (
-        lowerMovieTitle.includes(searchMovieValue) ||
-        lowerMovieOverview.includes(searchMovieValue)
-      );
+      return lowerMovieTitle.includes(searchMovieValue);
     });
   };
 

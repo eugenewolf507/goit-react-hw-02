@@ -17,8 +17,6 @@ class Reader extends Component {
 
   state = {
     publicationId: 0,
-    bacwardsButtonDisabled: true,
-    forwardButtonDisabled: false,
   };
 
   backwardsPublication = () =>
@@ -33,30 +31,19 @@ class Reader extends Component {
 
   handleControl = ({ target }) => {
     const { name } = target;
-    const { publicationId } = this.state;
-    const { items } = this.props;
-    if (name === 'backwards' && publicationId > 0) {
-      this.backwardsPublication();
-      this.setState({ forwardButtonDisabled: false });
-    }
-    if (name === 'backwards' && publicationId === 1) {
-      this.setState({ bacwardsButtonDisabled: true });
-    }
-    if (name === 'forward' && publicationId < items.length - 1) {
-      this.forwardPublication();
-      this.setState({ bacwardsButtonDisabled: false });
-    }
-    if (name === 'forward' && publicationId === items.length - 2) {
-      this.setState({ forwardButtonDisabled: true });
-    }
+
+    if (name === 'backwards') this.backwardsPublication();
+    if (name === 'forward') this.forwardPublication();
+  };
+
+  handleDecrement = () => {
+    this.setState(prevState => ({
+      forwardButtonDisabled: prevState.forwardButtonDisabled - prevState.value,
+    }));
   };
 
   render() {
-    const {
-      publicationId,
-      bacwardsButtonDisabled,
-      forwardButtonDisabled,
-    } = this.state;
+    const { publicationId } = this.state;
     const { items } = this.props;
     return (
       <div className={styles.reader}>
@@ -67,8 +54,8 @@ class Reader extends Component {
         />
         <Controls
           changePublication={this.handleControl}
-          bacwardsDisabled={bacwardsButtonDisabled}
-          forwardDisabled={forwardButtonDisabled}
+          publicationId={publicationId}
+          arrayLength={items.length}
         />
       </div>
     );

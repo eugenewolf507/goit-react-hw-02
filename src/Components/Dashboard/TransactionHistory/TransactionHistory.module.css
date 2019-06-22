@@ -12,7 +12,19 @@
   padding: 15px;
   text-align: center;
 }
-.history td {
+
+.transactionTD {
+  width: 30%;
+  padding: 15px 15px 15px 14%;
+}
+
+.amountTD {
+  width: 30%;
+  padding: 15px 15% 15px 15px;
+  text-align: right;
+}
+
+.dateTD {
   width: 30%;
   padding: 15px;
   text-align: center;

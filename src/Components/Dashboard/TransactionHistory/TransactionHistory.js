@@ -14,9 +14,9 @@ const transitionHistory = ({ transactions }) => (
     <tbody>
       {transactions.map(transaction => (
         <tr key={transaction.id} className={styles.row}>
-          <td>{transaction.type}</td>
-          <td>{transaction.amount}$</td>
-          <td>{transaction.date}</td>
+          <td className={styles.transactionTD}>{transaction.type}</td>
+          <td className={styles.amountTD}>{transaction.amount}$</td>
+          <td className={styles.dateTD}>{transaction.date}</td>
         </tr>
       ))}
     </tbody>

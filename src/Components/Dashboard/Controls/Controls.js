@@ -10,6 +10,7 @@ const Controls = ({ changeInputValue, deposit, withdraw, inputValue }) => (
       onChange={changeInputValue}
       value={inputValue}
       className={styles.input}
+      placeholder="0"
     />
     <button
       type="button"
